@@ -87,7 +87,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-WSGI_APPLICATION = 'config.wsgi.application'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'email'
+# EMAIL_HOST_PASSWORD = 'pass'
+# WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
