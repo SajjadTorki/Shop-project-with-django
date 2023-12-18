@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model
 
 
 class Product(models.Model):
-
     title = models.CharField(max_length=100)
     description = models.TextField()
     price = models.PositiveIntegerField(default=0)
@@ -20,6 +19,11 @@ class Product(models.Model):
 
     def get_absolut_url(self):
         return reverse("product_detail", args=[self.pk])
+
+
+class ActiveCommentManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentManager, self).get_queryset().filter(active=True)
 
 
 class Comment(models.Model):
@@ -37,6 +41,8 @@ class Comment(models.Model):
     datetime_modified = models.DateTimeField(auto_now=True)
     star = models.CharField(max_length=10, choices=STAR_CHOICES)
     active = models.BooleanField(default=True)
+    objects = models.Manager
+    active_comments_manager = ActiveCommentManager()
 
     def __str__(self):
         return f'Comment : {self.author}  , product :{self.product}'
