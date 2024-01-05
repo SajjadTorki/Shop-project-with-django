@@ -2,8 +2,8 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
+{% load i18n %}
 {% block title_page %}
-
     {{ product.title }}
 {% endblock title_page %}
 
@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
-                        <h1 class="page-title">جزئیات محصول «{{ product.title }}»</h1>
+                        <h1 class="page-title">{% trans 'detail of product' %}{{ product.title }}»</h1>
                     </div>
                 </div>
             </div>
@@ -49,11 +49,11 @@
                                     </div>
                                     <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
                                             onclick="window.location.href='cart.html'">
-                                        اضافه به سبد خرید
+                                        {% trans 'Add to cart' %}
                                     </button>
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
-                                    <p><span class="m-0">دسته بندی ها:</span>
+                                    <p><span class="m-0">{% trans 'Categories' %}:</span>
                                         <a href="shop.html">لباس</a>,
                                         <a href="shop.html">تابستانی</a>,
                                         <a href="shop.html">گرم</a>,
@@ -85,8 +85,6 @@
                                          aria-labelledby="nav-description-tab">
                                         <div class="product-description text-justify">
                                             <p>{{ product.description }}</p>
-
-
                                         </div>
                                     </div>
                                     <div class="tab-pane text-right" id="nav-info" role="tabpanel"
@@ -110,7 +108,7 @@
                                                         <a href="shop-sidebar.html">قرمز</a>,
                                                         <a href="shop-sidebar.html">نارنجی</a>,
                                                     </td>
-                                                </tr>   
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -118,15 +116,17 @@
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel"
                                          aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
-                                            <h3 class="review__title">{{ product.comments.all|only_active_comments|length }} نظر برای :{{ product.title }}
-                                               </h3>
-                                            <ul class="review__list">  
+                                            <h3 class="review__title">{{ product.comments.all|only_active_comments|length }}
+                                                {% translate 'comment for : ' %}{{ product.title }}
+                                            </h3>
+                                            <ul class="review__list">
                                                 {% for comment in product.comments|only_active_comments %}
                                                     <li class="review__item">
                                                         <div class="review__container">
                                                             <div class="review__text">
                                                                 <div class="d-flex flex-sm-row flex-row">
-                                                                    <img src="{% static 'img/others/comment-1.jpg' %}" alt="Review Avatar" class="review__avatar p-3">
+                                                                    <img src="{% static 'img/others/comment-1.jpg' %}"
+                                                                         alt="Review Avatar" class="review__avatar p-3">
                                                                     <div>
                                                                         <div class="review__meta" dir="ltr">
                                                                             <span class="review__published-date">{{ comment.datetime_created }}</span>
@@ -135,7 +135,8 @@
                                                                         </div>
                                                                         <div class="product-rating">
                                                                             <div class="m-0 star-rating star-five">
-                                                                                <span>Rated <strong class="rating">{{ product.stars }}</strong> out of 5</span>
+                                                                                <span>Rated <strong
+                                                                                        class="rating">{{ product.stars }}</strong> out of 5</span>
                                                                             </div>
                                                                         </div>
                                                                         <p class="review__description text-right px-4 pt-2">
@@ -152,12 +153,13 @@
                                                 <div class="row">
                                                     <div class="border-top py-5 w-100"></div>
                                                     <div class="col-lg-8 m-auto">
-                                                        <span class="reply-title pull-right">نظر خود را بنویسید</span>
+                                                        <span class="reply-title pull-right">{% trans 'Enter your comment please!' %}</span>
                                                         <br>
-                                                        <form action="{% url 'comment_created' product.id %}" method="post">
+                                                        <form action="{% url 'comment_created' product.id %}"
+                                                              method="post">
                                                             {% csrf_token %}
                                                             {{ comment_form| crispy }}
-                                                            <input type="submit" value="ارسال" class="btn btn-info">
+                                                            <input type="submit" value={% trans 'Send' %} class="btn btn-info">
                                                         </form>
                                                     </div>
                                                 </div>

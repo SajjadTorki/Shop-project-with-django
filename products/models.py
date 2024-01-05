@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext as _
 
 
 # Create your models here.
@@ -28,18 +29,18 @@ class ActiveCommentManager(models.Manager):
 
 class Comment(models.Model):
     STAR_CHOICES = [
-        ('1', 'very bad'),
-        ('2', 'bad'),
-        ('3', 'normal'),
-        ('4', 'good'),
-        ('5', 'very good'),
+        ('1', _('very bad')),
+        ('2', _('bad')),
+        ('3', _('normal')),
+        ('4', _('good')),
+        ('5', _('very good')),
     ]
     author = models.ForeignKey(get_user_model(), related_name='comments', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='comments', on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(verbose_name=_('Comment Text'))
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-    star = models.CharField(max_length=10, choices=STAR_CHOICES)
+    star = models.CharField(max_length=10, choices=STAR_CHOICES, verbose_name=_('What is your soccer?'))
     active = models.BooleanField(default=True)
     objects = models.Manager
     active_comments_manager = ActiveCommentManager()
