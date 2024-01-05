@@ -9,13 +9,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 14:22+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2024-01-05 19:10+0330\n"
+"Last-Translator: سجاد  <sajjad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\models.py:32
 msgid "very bad"
@@ -47,7 +48,7 @@ msgstr "امتیازات شما"
 
 #: .\templates\products\product_detail.html:18
 msgid "detail of product"
-msgstr "جزئیات محصول"
+msgstr "جزئیات محصول "
 
 #: .\templates\products\product_detail.html:52
 msgid "Add to cart"

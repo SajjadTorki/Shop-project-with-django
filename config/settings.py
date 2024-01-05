@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
+    'rosetta',
 
     # local App
     'pages',
@@ -138,6 +139,10 @@ LANGUAGE_CODE = 'fa'
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
+LANGUAGES = [
+    ('en', 'English'),
+    ('fa', 'Persian')
+]
 
 USE_I18N = True
 USE_I10N = True
