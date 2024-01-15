@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="fa" class="no-js">
 
@@ -88,18 +89,23 @@
                                     <i class="flaticon flaticon-user"></i>
                                 </a>
                                 <ul class="user-info-menu">
-                                    <li>
-                                        <a class="text-right" href="my-account.html">حساب کاربری</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="cart.html">سبد خرید</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
-                                    </li>
+                                    {% if user.is_authenticated %}
+                                        <li>
+                                            <a class="text-right" href="{% url 'account_logout' %}">{% translate 'Log Out' %}</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right" href="{% url 'cart:cart_detail' %}">{% translate 'Card List' %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a class="text-right" href="{% url 'account_login' %}">{% translate 'Log In' %}</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right" href="{% url 'account_signup' %}">{% translate 'Sign in' %}</a>
+                                        </li>
+                                    {% endif %}
+
+
                                 </ul>
                             </li>
                             <li class="header-toolbar__item">
@@ -120,10 +126,17 @@
     </header>
     <!-- Header End -->
 
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
 
-{% block content_page %}
+    {% endif %}
+    {% block content_page %}
 
-{% endblock content_page %}
+    {% endblock content_page %}
 
     <!-- Footer Start-->
     <footer class="footer">
@@ -142,7 +155,7 @@
                             </ul>
                         </div>
                         <div class="footer-widget">
-                           © | all rights reserved
+                            © | all rights reserved
                         </div>
                     </div>
                 </div>
@@ -247,7 +260,7 @@
     <script src="{% static '/js/vendor.js' %}"></script>
 
     <!-- Main JS -->
-    <script src="{% static '/js/main.js'%}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
 </div>
 
 </body>

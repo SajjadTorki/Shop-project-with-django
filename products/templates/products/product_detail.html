@@ -41,16 +41,26 @@
                                     <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                    <div class="quantity-wrapper d-flex justify-content-start">
-                                        <div class="quantity">
-                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1"
-                                                   min="1">
+                                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                        {% csrf_token %}
+
+                                        <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                            <div class="quantity-wrapper d-flex justify-content-start">
+                                                <div class="quantity">
+                                                    <input type="number" class="quantity-input" name="quantity" id="qty"
+                                                           value="1" min="1" max="30">
+                                                </div>
+                                            </div>
+                                            <button type="submit"
+                                                    class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
+                                                    onclick="window.location.href='cart.html'">
+                                                {% translate "Add to cart" %}
+                                            </button>
                                         </div>
-                                    </div>
-                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
-                                            onclick="window.location.href='cart.html'">
-                                        {% trans 'Add to cart' %}
-                                    </button>
+
+
+                                    </form>
+
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">{% trans 'Categories' %}:</span>
@@ -153,14 +163,23 @@
                                                 <div class="row">
                                                     <div class="border-top py-5 w-100"></div>
                                                     <div class="col-lg-8 m-auto">
-                                                        <span class="reply-title pull-right">{% trans 'Enter your comment please!' %}</span>
-                                                        <br>
-                                                        <form action="{% url 'comment_created' product.id %}"
-                                                              method="post">
-                                                            {% csrf_token %}
-                                                            {{ comment_form| crispy }}
-                                                            <input type="submit" value={% trans 'Send' %} class="btn btn-info">
-                                                        </form>
+                                                        {% if user.is_authenticated %}
+                                                            <span class="reply-title pull-right">{% trans 'Enter your comment please!' %}</span>
+                                                            <br>
+                                                            <form action="{% url 'comment_created' product.id %}"
+                                                                  method="post">
+                                                                {% csrf_token %}
+                                                                {{ comment_form| crispy }}
+                                                                <input type="submit" value={% trans 'Send' %} class="btn
+                                                                       btn-info">
+                                                            </form>
+                                                        {% else %}
+                                                            <p>
+                                                                {% trans 'To write your comment.Please: ' %}
+                                                                <a href="{% url 'account_login' %}">{% trans 'Login ' %}</a>
+                                                            </p>
+
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                             </div>
