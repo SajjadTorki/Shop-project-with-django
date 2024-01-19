@@ -1,18 +1,18 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 
 {% block title_page %}
     Log In
 {% endblock title_page %}
 
 {% block content_page %}
-    <h1>Log out</h1>
-    <h2>Are you sure log out?</h2>
+    <h1>{% translate 'Log out' %}</h1>
+    <h2>{% translate 'Are you sure log out?' %}</h2>
     <br>
     <form action="" method="post" class="container">
         {% csrf_token %}
-        <input type="submit" class="btn btn-success" value="Are You Sure?">
+        <input type="submit" class="btn btn-success" value="{% translate 'Are You Sure?' %}">
     </form>
 
 {% endblock content_page %}

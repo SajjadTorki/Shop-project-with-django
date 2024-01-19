@@ -1,19 +1,20 @@
 from django.db import models
+from django.utils import timezone
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext as _
-
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     price = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='product/product_cover/', verbose_name=_("Product Image"), blank=True, )
     active = models.BooleanField(default=True)
-    datetime_created = models.DateTimeField(auto_now_add=True)
+    datetime_created = models.DateTimeField(_('Date Time of Creation'), default=timezone.now)
     datetime_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):

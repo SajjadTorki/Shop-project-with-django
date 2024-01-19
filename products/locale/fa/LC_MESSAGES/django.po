@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 12:32+0330\n"
+"POT-Creation-Date: 2024-01-19 11:57+0330\n"
 "PO-Revision-Date: 2024-01-15 18:02+0330\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,63 +18,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\products\models.py:32
+#: .\products\models.py:15
+msgid "Product Image"
+msgstr ""
+
+#: .\products\models.py:17
+msgid "Date Time of Creation"
+msgstr ""
+
+#: .\products\models.py:34
 msgid "very bad"
 msgstr "خیلی بد"
 
-#: .\products\models.py:33
+#: .\products\models.py:35
 msgid "bad"
 msgstr "بد"
 
-#: .\products\models.py:34
+#: .\products\models.py:36
 msgid "normal"
 msgstr "عادی"
 
-#: .\products\models.py:35
+#: .\products\models.py:37
 msgid "good"
 msgstr "خوب"
 
-#: .\products\models.py:36
+#: .\products\models.py:38
 msgid "very good"
 msgstr "خیلی خوب"
 
-#: .\products\models.py:40
+#: .\products\models.py:42
 msgid "Comment Text"
 msgstr " نظرات"
 
-#: .\products\models.py:43
+#: .\products\models.py:45
 msgid "What is your soccer?"
 msgstr "امتیازات شما"
 
-#: .\products\templates\products\product_detail.html:18
+#: .\products\templates\products\product_detail.html:22
 msgid "detail of product"
 msgstr "جزئیات محصول "
 
-#: .\products\templates\products\product_detail.html:57
+#: .\products\templates\products\product_detail.html:63
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\products\templates\products\product_detail.html:66
+#: .\products\templates\products\product_detail.html:72
 msgid "Categories"
 msgstr "دسته بندی "
 
-#: .\products\templates\products\product_detail.html:130
+#: .\products\templates\products\product_detail.html:136
 msgid "comment for : "
 msgstr "نظر برای :"
 
-#: .\products\templates\products\product_detail.html:167
+#: .\products\templates\products\product_detail.html:173
 msgid "Enter your comment please!"
 msgstr "لطفا نظر خود را بنویسید "
 
-#: .\products\templates\products\product_detail.html:173
+#: .\products\templates\products\product_detail.html:179
 msgid "Send"
 msgstr "ارسال"
 
-#: .\products\templates\products\product_detail.html:178
+#: .\products\templates\products\product_detail.html:184
 msgid "To write your comment.Please: "
 msgstr "لطفا نظر خود را بنویسید :"
 
-#: .\products\templates\products\product_detail.html:179
+#: .\products\templates\products\product_detail.html:185
 msgid "Login "
 msgstr "ورود به صفحه مدیر"
 

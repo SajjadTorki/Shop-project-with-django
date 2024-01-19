@@ -1,5 +1,7 @@
 {% load static %}
 {% load i18n %}
+{% load persian_translation_tag %}
+{% load humanize %}
 <!doctype html>
 <html lang="fa" class="no-js">
 
@@ -49,7 +51,7 @@
                                 <ul class="mainmenu d-lg-flex jusity-content-end jusity-content-lg-start pt-4">
                                     <li class="mainmenu__item menu-item-has-children active">
                                         <a href="{% url 'product_list' %}" class="mainmenu__link">
-                                            <span class="mm-text">خانه</span>
+                                            <span class="mm-text">{% trans 'home' %}</span>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item menu-item-has-children">
@@ -59,12 +61,12 @@
                                     </li>
                                     <li class="mainmenu__item menu-item-has-children">
                                         <a href="#" class="mainmenu__link">
-                                            <span class="mm-text">صفحات</span>
+                                            <span class="mm-text">{% translate 'pages' %}</span>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="contact-us.html" class="mainmenu__link">
-                                            <span class="mm-text">تماس با ما</span>
+                                            <span class="mm-text">{% translate 'about us' %}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -81,7 +83,7 @@
                             <li class="header-toolbar__item mini-cart-item">
                                 <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
                                     <i class="flaticon flaticon-shopping-cart"></i>
-                                    <sup class="mini-cart-count">{{ cart|length }}</sup>
+                                    <sup class="mini-cart-count">{{ cart|length|translate_number }}</sup>
                                 </a>
                             </li>
                             <li class="header-toolbar__item user-info">

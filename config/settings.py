@@ -40,26 +40,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     # Third part apps
+    'jalali_date',
     'crispy_forms',
     'crispy_bootstrap5',
     'allauth',
     'allauth.account',
-    # 'allauth.socialaccount',
     'rosetta',
+    'ckeditor',
 
     # local App
-    'pages',
-    'accounts',
-    'products',
-    'cart',
-
+    'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
+    'products.apps.ProductsConfig',
+    'cart.apps.CartConfig',
+    'persian_translation.apps.PersianTranslationConfig',
 ]
 SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -138,18 +141,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
+
+
 LANGUAGE_CODE = 'fa'
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
 LANGUAGES = [
-    ('en', 'English'),
     ('fa', 'Persian')
 ]
-
+PROJECT_PATH = os.path.split(os.path.abspath(os.path.dirname(__file__)))[0]
+LOCALE_PATHS = (
+    os.path.join(PROJECT_PATH, "locale"),
+)
 USE_I18N = True
 USE_I10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -160,6 +166,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # Media
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
