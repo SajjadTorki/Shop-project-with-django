@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-20 10:47+0330\n"
+"PO-Revision-Date: 2024-01-20 10:40+0330\n"
+"Last-Translator: سجاد ترکی <sajjad@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\orders\models.py:10
+msgid "user"
+msgstr "کاربر"
+
+#: .\orders\models.py:11
+msgid "Paid"
+msgstr "پرداخت"
+
+#: .\orders\models.py:12
+msgid "FirstName"
+msgstr "نام"
+
+#: .\orders\models.py:13
+msgid "LastName"
+msgstr "نام خانوادگی"
+
+#: .\orders\models.py:14
+msgid "Order Notes"
+msgstr " جزئیات سفارش"
+
+#: .\orders\models.py:15
+msgid "phone number"
+msgstr "شماره تماس"
+
+#: .\orders\models.py:16
+msgid "Address"
+msgstr "نشانی"
+
+#: .\orders\models.py:17
+msgid "Created"
+msgstr "تاریخ سفارش"
+
+#: .\orders\models.py:18
+msgid "Modified"
+msgstr "تاریخ تغییر سفارش"
+
+#: .\orders\models.py:25
+msgid "Order"
+msgstr "سفارش"
+
+#: .\orders\models.py:27
+msgid "Product"
+msgstr "محصولات"
+
+#: .\orders\models.py:28
+msgid "Quantity"
+msgstr "تعداد"
+
+#: .\orders\models.py:29
+msgid "Price"
+msgstr "قیمت"
+
+#: .\orders\templates\orders\orders_create.html:8
+msgid "Cart Creation"
+msgstr "ثبت سفارش"
+
+#: .\orders\templates\orders\orders_create.html:80
+msgid "Submit"
+msgstr "ارسال"
+
+#: .\orders\templates\orders\orders_create.html:104
+#: .\orders\templates\orders\orders_create.html:112
+msgid "$"
+msgstr "تومان"
+
+#: .\orders\views.py:18
+msgid "You can not proceed to checkout page because your cart is empty."
+msgstr "شما نمی توانید به صفحه پرداخت ادامه دهید زیرا سبد خرید شما خالی است"
