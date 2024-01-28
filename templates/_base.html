@@ -65,7 +65,7 @@
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
-                                        <a href="contact-us.html" class="mainmenu__link">
+                                        <a href="{% url 'about_us' %}" class="mainmenu__link">
                                             <span class="mm-text">{% translate 'about us' %}</span>
                                         </a>
                                     </li>
@@ -157,7 +157,7 @@
                             <ul class="footer-menu">
                                 <li><a href="">درباره ما</a></li>
                                 <li><a href="">قوانین و مقررات</a></li>
-                                <li><a href="">تماس با ما</a></li>
+                                <li><a href="{% url 'about_us' %}">تماس با ما</a></li>
                             </ul>
                         </div>
                         <div class="footer-widget">
